@@ -3,6 +3,7 @@ import './App.css';
 import axios from "axios";
 import 'semantic-ui-css/semantic.min.css'
 import Starcard from './components/Starcard'
+import { Container, Header, Segment } from 'semantic-ui-react'
 
 const App = () => {
   const [starobj, setStarobj] = useState([]);
@@ -26,7 +27,9 @@ const App = () => {
 
 
   return (
-    <div className="container">
+    <Container text>
+      <Segment raised>
+      <Header as='h1' textAlign='center'>Star Wars</Header>
     {starobj.map(data => {
       return (
         <Starcard
@@ -37,7 +40,8 @@ const App = () => {
         />
       );
     })}
-  </div>
+    </Segment>
+  </Container>
   );
 }
 
