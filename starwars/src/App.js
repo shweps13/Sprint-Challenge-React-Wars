@@ -29,16 +29,22 @@ const App = () => {
   const CenteredContainer= styled(Container)`
   margin-top: 1%;
   `;
+  const CenteredGrid= styled(Grid)`
+  justify-items: center !important;
+  `;
+  const RowSpec= styled(CenteredGrid.Row)`
+  padding: 5% !important;
+  `;
 
   return (
     <CenteredContainer text>
       <Segment raised>
       <Header as='h1' textAlign='center'>Star Wars</Header>
-        <Grid divided='vertically'>
-          <Grid.Row columns={2} >
+        <CenteredGrid columns={2} divided divided='vertically'>
+          <RowSpec >
     {starobj.map(data => {
       return (
-        <Grid.Column >
+        <CenteredGrid.Column >
           <Starcard
           key={data.created}
           name={data.name}
@@ -47,11 +53,11 @@ const App = () => {
           height={data.height}
           
           />
-        </Grid.Column>
+        </CenteredGrid.Column>
       );
     })}
-        </Grid.Row>
-      </Grid>
+        </RowSpec>
+      </CenteredGrid>
     </Segment>
   </CenteredContainer>
   );
