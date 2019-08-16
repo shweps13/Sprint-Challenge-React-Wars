@@ -3,7 +3,8 @@ import './App.css';
 import axios from "axios";
 import 'semantic-ui-css/semantic.min.css'
 import Starcard from './components/Starcard'
-import { Container, Header, Segment } from 'semantic-ui-react'
+import { Container, Header, Segment, Grid } from 'semantic-ui-react'
+import styled from 'styled-components'
 
 const App = () => {
   const [starobj, setStarobj] = useState([]);
@@ -24,24 +25,35 @@ const App = () => {
       });
   }, []);
 
-
+ 
+  const CenteredContainer= styled(Container)`
+  margin-top: 1%;
+  `;
 
   return (
-    <Container text>
+    <CenteredContainer text>
       <Segment raised>
       <Header as='h1' textAlign='center'>Star Wars</Header>
+        <Grid divided='vertically'>
+          <Grid.Row columns={2} >
     {starobj.map(data => {
       return (
-        <Starcard
+        <Grid.Column >
+          <Starcard
           key={data.created}
           name={data.name}
           hair_color={data.hair_color}
           gender={data.gender}
-        />
+          height={data.height}
+          
+          />
+        </Grid.Column>
       );
     })}
+        </Grid.Row>
+      </Grid>
     </Segment>
-  </Container>
+  </CenteredContainer>
   );
 }
 

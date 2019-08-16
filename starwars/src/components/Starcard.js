@@ -7,8 +7,8 @@ const StarCard = props => {
     const items = [
         {
           header: `${props.name}`,
-          description: `${props.hair_color}`,
-          meta: `${props.gender}`,
+          meta: `Gender: ${props.gender}`,
+          description: `Hair_color: ${props.hair_color}, Height: ${props.height}`,
         }
 
       ]
